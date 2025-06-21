@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Wiji Ningtiyas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Portofolio Web Developer dan UI/UX Designer - HTML, CSS, JavaScript, desain antarmuka modern dan responsif." />
+  <meta name="keywords" content="Web Developer, UI UX, HTML, CSS, JavaScript, Portofolio, Desain Web" />
+  <meta name="author" content="Wenday" />
+  <link rel="canonical" href="https://www.domainanda.com/" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1384/1384007.png" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Swiper.js CDN -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      --text-color: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --accent-color: #00ff88;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-color);
+      overflow-x: hidden;
+      position: relative;
+      transition: background 0.5s ease;
+    }
+    .dark-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: var(--card-bg);
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .dark-mode {
+      --bg-gradient: linear-gradient(to right, #000000, #0f2027);
+      --text-color: #f8f8f8;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --accent-color: #00ff88;
+    }
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.gifer.com/7efs.gif') center center/cover no-repeat;
+      opacity: 0.1;
+      z-index: -1;
+      filter: blur(12px);
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .profile {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+      border: 5px solid white;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .section {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .experience, .skills, .contact {
+      background: var(--card-bg);
+      margin: 1rem auto;
+      width: 80%;
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+    .skills ul {
+      padding: 0;
+    }
+    .skills li {
+      position: relative;
+      margin: 1rem 0;
+      list-style: none;
+      text-align: right;
+      background: #444;
+      border-radius: 5px;
+      overflow: hidden;
+      padding: 0.5rem 1rem;
+    }
+    .skills .bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: var(--accent-color);
+      width: 0;
+      animation: fillBar 10s ease-in-out forwards;
+    }
+    .skills li:nth-child(1) .bar { width: 87%; }
+    .skills li:nth-child(2) .bar { width: 76%; }
+    .skills li:nth-child(3) .bar { width: 69%; }
+    .skills li:nth-child(4) .bar { width: 77%; }
+
+    @keyframes fillBar {
+      0% { width: 0; }
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+    }
+    .download-btn {
+      margin-top: 2rem;
+      display: inline-block;
+      background: var(--accent-color);
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .comment-box {
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .comment-box textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      resize: vertical;
+    }
+    .comment-box button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: var(--accent-color);
+      color: #000;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+	footer {
+      text-align: center;
+      padding: 1rem;
+      background: transparent;
+      color: var(--text-color);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="dark-toggle" onclick="toggleDarkMode()">🌙 Mode</div>
+
+<header data-aos="fade-down">
+  <div class="profile">
+    <img src="image/images.jpg" alt="Foto Profil" />
+  </div>
+  <h1>Wiji Ningtiyas</h1>
+  <p>Content Creator & Video Editor</p>
+  <div class="social-icons">
+    <a href="https://wa.me/6282335276346" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" alt="WhatsApp">
+    </a>
+    <a href="https://tiktok.com/@starblack.x8" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/3116/3116491.png" alt="TikTok">
+    </a>
+    <a href="https://instagram.com/grad_iator" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
+    </a>
+    <a href="https://twitter.com/Arwendi_Ha" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="Twitter">
+    </a>
+  </div>
+</header>
+
+<section class="section experience" data-aos="fade-up">
+  <h2>Pengalaman</h2>
+  <p>Admin Marketplace</p>
+  <p>Content Creator</p>
+  <p>Operator Design Grafis</p>
+  <p>Administrasi</p>
+  <p>Host Live</p>
+  <p>Packing Olshop</p>
+  <p>Produksi minuman</p>
+  <p>Freelance AMERO Jawerlly </p>
+</section>
+
+<section class="section skills" data-aos="fade-up">
+  <h2>Keahlian</h2>
+  <ul>
+    <li>Photoshop
+      <div class="bar" style="width: 87%;"></div>
+    </li>
+    <li>CapCut
+      <div class="bar" style="width: 76%;"></div>
+    </li>
+    <li>Adobe Premiere
+      <div class="bar" style="width: 69%;"></div>
+    </li>
+    <li>Ms Office
+      <div class="bar" style="width: 77%;"></div>
+    </li>
+  </ul>
+</section>
+
+  <section class="section gallery-slider" data-aos="fade-up">
+  <h2>Galeri Proyek</h2>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="image/images5.jpg" alt="Slide 1"></div>
+      <div class="swiper-slide"><img src="image/images1.jpg" alt="Slide 2"></div>
+      <div class="swiper-slide"><img src="image/images3.jpg" alt="Slide 3"></div>
+      <div class="swiper-slide"><img src="image/images4.jpg" alt="Slide 4"></div>
+    </div>
+    <!-- Navigasi -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+
+<section class="section contact" data-aos="fade-up">
+  <h2>Kontak</h2>
+  <form>
+    <input type="text" placeholder="Nama Anda" required /><br><br>
+    <input type="email" placeholder="Email Anda" required /><br><br>
+    <textarea rows="4" placeholder="Pesan Anda..."></textarea><br><br>
+    <button type="submit">Kirim</button>
+  </form>
+  <div class="report-box">
+    <h3>Laporkan Masalah</h3>
+    <textarea rows="2" placeholder="Laporkan bug atau masalah..."></textarea><br>
+    <button>Kirim Laporan</button>
+  </div>
+</section>
+
+<section class="section download" data-aos="flip-down">
+  <h2>Unduh CV</h2>
+  <a href="download/cv.pdf" download>
+    <button>⬇️ Unduh CV Saya</button>
+  </a>
+</section>
+
+<!-- Particles.js Background -->
+<div id="tsparticles"></div>
+<script>
+  tsParticles.load("tsparticles", {
+    background: { color: { value: "transparent" } },
+    particles: {
+      number: { value: 30 },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.2 },
+      size: { value: { min: 2, max: 6 } },
+      move: { enable: true, speed: 1, direction: "top", outMode: "out" }
+    },
+    interactivity: {
+      events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+      modes: { repulse: { distance: 100 } }
+    }
+  });
+</script>
+
+<!-- Scroll Animation -->
+<script>
+  AOS.init();
+</script>
+
+<!-- Dark Mode Toggle -->
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+</script>
+
+<footer>
+  &copy; 2025 ❤️❤️Tiyasao❤️❤️. Copyright All
+</footer>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+</body>
+</html>
